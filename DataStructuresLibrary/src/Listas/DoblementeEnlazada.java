@@ -17,7 +17,7 @@ public class DoblementeEnlazada {
 
     //add a new node at the start of the linked list
     public void addNodeAtStart(int data) {
-        System.out.println("Adding node " + data + " at start.");
+        System.out.println("Agregando nodo " + data + " al inicio.");
         Node n = new Node(data);
         if (size == 0) {
             head = n;
@@ -42,14 +42,14 @@ public class DoblementeEnlazada {
             tail.next = head;
             size++;
         }
-        System.out.println("\nNode " + data + " is added at the end of the list");
+        System.out.println("\nEl nodo " + data + " ha sido añadido al final de la lista");
     }
 
     public void deleteNodeFromStart() {
         if (size == 0) {
-            System.out.println("\nList is Empty");
+            System.out.println("\nLa lista está vacía.");
         } else {
-            System.out.println("\ndeleting node " + head.data + " from start");
+            System.out.println("\nEliminando nodo " + head.data + " del inicio de la lista");
             head = head.next;
             tail.next = head;
             size--;
@@ -69,7 +69,7 @@ public class DoblementeEnlazada {
     }
 
     //print the linked list
-    public void print() {
+    public void imprimir() {
         System.out.print("Circular Linked List:");
         Node temp = head;
         if (size <= 0) {
@@ -86,20 +86,6 @@ public class DoblementeEnlazada {
     //get Size
     public int getSize() {
         return size;
-    }
-
-    public static void main(String[] args) {
-        DoblementeEnlazada c = new DoblementeEnlazada();
-        c.addNodeAtStart(3);
-        c.addNodeAtStart(2);
-        c.addNodeAtStart(1);
-        c.print();
-        c.deleteNodeFromStart();
-        c.print();
-        c.addNodeAtEnd(4);
-        c.print();
-        System.out.println("Size of linked list: " + c.getSize());
-        System.out.println("Element at 2nd position: " + c.elementAt(2));
     }
 
 }
