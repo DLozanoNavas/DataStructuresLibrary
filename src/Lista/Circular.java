@@ -3,28 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Listas;
+package Lista;
 
 /**
  *
  * @author dlozanonavas
  */
-public class DoblementeEnlazada {
+public class Circular {
 
     public int size = 0;
-    public Node head = null;
-    public Node tail = null;
+    public CircularNode head = null;
+    public CircularNode tail = null;
 
     //add a new node at the start of the linked list
     public void addNodeAtStart(int data) {
         System.out.println("Agregando nodo " + data + " al inicio.");
-        Node n = new Node(data);
+        CircularNode n = new CircularNode(data);
         if (size == 0) {
             head = n;
             tail = n;
             n.next = head;
         } else {
-            Node temp = head;
+            CircularNode temp = head;
             n.next = temp;
             head = n;
             tail.next = head;
@@ -36,20 +36,20 @@ public class DoblementeEnlazada {
         if (size == 0) {
             addNodeAtStart(data);
         } else {
-            Node n = new Node(data);
+            CircularNode n = new CircularNode(data);
             tail.next = n;
             tail = n;
             tail.next = head;
             size++;
         }
-        System.out.println("\nEl nodo " + data + " ha sido añadido al final de la lista");
+        System.out.println("\nEl nodo " + data + " ha sido añadido al final de la lista.");
     }
 
     public void deleteNodeFromStart() {
         if (size == 0) {
             System.out.println("\nLa lista está vacía.");
         } else {
-            System.out.println("\nEliminando nodo " + head.data + " del inicio de la lista");
+            System.out.println("\nEliminando nodo " + head.data + " del inicio");
             head = head.next;
             tail.next = head;
             size--;
@@ -60,7 +60,7 @@ public class DoblementeEnlazada {
         if (index > size) {
             return -1;
         }
-        Node n = head;
+        CircularNode n = head;
         while (index - 1 != 0) {
             n = n.next;
             index--;
@@ -69,11 +69,11 @@ public class DoblementeEnlazada {
     }
 
     //print the linked list
-    public void imprimir() {
-        System.out.print("Circular Linked List:");
-        Node temp = head;
+    public void print() {
+        System.out.print("Lista circular::");
+        CircularNode temp = head;
         if (size <= 0) {
-            System.out.print("List is empty");
+            System.out.print("La lista está vacía.");
         } else {
             do {
                 System.out.print(" " + temp.data);
@@ -90,12 +90,12 @@ public class DoblementeEnlazada {
 
 }
 
-class Node {
+class CircularNode {
 
     int data;
-    Node next;
+    CircularNode next;
 
-    public Node(int data) {
+    public CircularNode(int data) {
         this.data = data;
     }
 }
